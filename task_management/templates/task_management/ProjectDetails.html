@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0-RC3/css/bootstrap-datepicker.min.css"
+    />
+    <style type="text/css">
+      .page-header {
+        background-color: #009bdf;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 50px;
+      }
+      .sidebar {
+        background-color: #009bdf;
+        position: fixed;
+        height: 100%;
+        left: 0;
+        width: 50px;
+        top: 47px;
+      }
+      .mr-btn-grey {
+        padding: 4px 8px;
+        background: #c7e1e7;
+        border: 1px solid #9dc1cf;
+        border-radius: 4px;
+      }
+      .mr-btn-grey:hover {
+        background: #819ca1;
+        color: #fff;
+        border-color: #6b8a90;
+      }
+      .mr-header-margin {
+        margin-top: 15px !important;
+      }
+      .mr-panel {
+        padding: 15px;
+      }
+      hr {
+        display: block;
+        margin-top: 0.1em;
+        margin-bottom: 0.1em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+        border-color: #009bdf;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <h4 style="padding: 0px; margin-left: 100px; margin-top: 10px;">
+        Project Deatails
+      </h4>
+    </div>
+    <div class="sidebar"></div>
+    <div class="container">
+      <!-- <div class="row"> -->
+      <div class="panel panel-default mr-panel">
+        <div class="row mr-btn-wrap-top" style="margin-top: 50px;">
+          <div class="col-md-2">
+            <button
+              type="button"
+              style="
+                background-color: #009bdf;
+                margin-top: 15px;
+                text-align: center;
+              "
+              id="btnEditProject"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Edit Project
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- </div>
+      </div> -->
+
+      <!-- <div class="row"> -->
+      <div class="panel panel-default mr-panel" style="padding-bottom: 0cm;">
+        <div class="row mr-row">
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Project Name</span>
+              <input
+                id="ProjectName"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Duration(In Hours)</span>
+              <input
+                id="Duration"
+                type="text"
+                class="form-control"
+                style="width: 100px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Project Manager</span>
+              <input
+                id="ProjectManager"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mr-row">
+          <div class="col-md-6">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm" style="margin-top: 50px;"
+                >Description</span
+              >
+              <textarea
+                class="form-control"
+                rows="5"
+                id="Description"
+                style="margin-left: 10px;"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <button
+              style="background-color: #009bdf; margin-top: 50px;"
+              type="button"
+              id="saveProject"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="panel panel-default mr-panel">
+        <div class="row mr-btn-wrap-top">
+          <div class="col-md-12" style="text-align: center; color: #009bdf;">
+            <span
+              class="mr-header-margin"
+              style="
+                padding: 0px;
+                font-size: 20px;
+                margin-top: 15px !important;
+                text-align: center;
+              "
+            >
+              Task's List
+            </span>
+          </div>
+        </div>
+        <div class="row mr-btn-wrap-top">
+          <div class="col-md-3">
+            <button
+              type="button"
+              style="
+                background-color: #009bdf;
+                margin-top: 0px;
+                text-align: right;
+              "
+              id="btnAddTask"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Add Task
+            </button>
+          </div>
+        </div>
+        <div>
+          <table
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            class="table table-bordered table-hover"
+            id="dtTableTaskList"
+            width="100%"
+          ></table>
+        </div>
+      </div>
+      <!-- </div> -->
+      <div class="panel panel-default mr-panel">
+        <div class="row mr-btn-wrap-top">
+          <div class="col-md-12" style="text-align: center; color: #009bdf;">
+            <span
+              class="mr-header-margin"
+              style="
+                padding: 0px;
+                font-size: 20px;
+                margin-top: 15px !important;
+                text-align: center;
+              "
+            >
+              Task(New/Edit)
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default mr-panel" style="padding-bottom: 0cm;">
+        <div class="row mr-row">
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Task Name</span>
+              <input
+                id="TaskName"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group date" data-provide="datepicker">
+              <span class="input-group-addon input-sm">Start Date</span>
+              <input
+                id="StartDate"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group date" data-provide="datepicker">
+              <span class="input-group-addon input-sm">End Date</span>
+              <input
+                id="EndDate"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mr-row">
+          <div class="col-md-6">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm" style="margin-top: 50px;"
+                >Description</span
+              >
+              <textarea
+                class="form-control"
+                rows="5"
+                id="TaskDescription"
+                style="margin-left: 10px;"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group input-group" style="margin-top: 50px;">
+              <span class="input-group-addon input-sm">Assignee</span>
+              <!-- <input
+                id="Assignee"
+                style="margin-left: 10px;"
+                type="text"
+                class="form-control"
+              /> -->
+              <select
+                class="form-control input-sm Assignee"
+                id="Assignee"
+                style="margin-left: 10px;"
+              >
+                <option value="0"></option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button
+              style="background-color: #009bdf; margin-top: 50px;"
+              type="button"
+              id="saveTask"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    </div>
+    <!-- </div> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"
+    />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.0-RC3/js/bootstrap-datepicker.min.js"
+    ></script>
+    <script type="text/javascript">
+      task_management = window.task_management || {};
+      task_management.GenSettings = task_management.GenSettings || {};
+      getTaskList();
+      SaveProjects();
+      DisableProjectDetailsForm();
+      EditProject();
+      saveTask();
+      getAssigneeName();
+      AddTask();
+      DisabletaskForm();
+      var ProjectID = "{{id}}";
+      var ProjectName = "{{ProjectName}}";
+      var Duration = "{{Duration}}";
+      var ProjectManager = "{{ProjectManager}}";
+      var Description = "{{Description}}";
+      $("#ProjectName").val(ProjectName);
+      $("#Duration").val(Duration);
+      $("#ProjectManager").val(ProjectManager);
+      $("#Description").val(Description);
+      $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+      $(".datepicker").datepicker({
+        startDate: "-3d",
+      });
+      function SaveProjects() {
+        $("#saveProject").click(function () {
+          var params = getProjectParams();
+          if (!validParamsProjects(params)) return false;
+          var request = $.ajax({
+            url: "/task_management/ProjectInsertUpdate/",
+            dataType: "json",
+            type: "POST",
+            data: {
+              ProjectID: params.ProjectID,
+              ProjectName: params.ProjectName,
+              Duration: params.Duration,
+              ProjectManager: params.ProjectManager,
+              Description: params.Description,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+          });
+          request.done(function (result) {
+            var resultdata = JSON.parse(result);
+            if (resultdata["Status"] == "Success") {
+              alert("Project Updated Successfully");
+              getProjectList();
+              DisableProjectDetailsForm();
+            } else {
+              alert("Error: " + resultdata["message"]);
+            }
+          });
+          request.fail(function (jqXHR, textStatus) {
+            alert("Error in processing request. Please try again.");
+          });
+        });
+      }
+      function validParamsProjects(params) {
+        var errorMsg = "";
+        if (params.ProjectName == "") {
+          errorMsg += "Enter Project Name";
+        }
+        if (params.Duration <= 0) {
+          errorMsg += "Enter Duration";
+        }
+        if (params.ProjectManager == "") {
+          errorMsg += "Enter Project Manager Name";
+        }
+        if (params.Description == "") {
+          errorMsg += "Enter Description";
+        }
+
+        if (errorMsg == "") {
+          return true;
+        } else {
+          alert("Errors: " + errorMsg);
+          return false;
+        }
+      }
+      function getProjectParams() {
+        var params = {};
+        params.ProjectID = ProjectID;
+        params.ProjectName = $("#ProjectName").val().trim();
+        params.Duration = $("#Duration").val().trim();
+        params.ProjectManager = $("#ProjectManager").val().trim();
+        params.Description = $("#Description").val();
+        return params;
+      }
+      function getTaskList() {
+        var projectlist = 1;
+        var request = $.ajax({
+          url: "/task_management/getTasklist/",
+          dataType: "json",
+          type: "POST",
+          data: {
+            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+          },
+        });
+        request.done(function (result) {
+          if (result != null) {
+            fillTaskListTable(result);
+          } else {
+            alert("Error: " + resultdata["message"]);
+          }
+        });
+        request.fail(function (jqXHR, textStatus) {
+          alert("Error in processing request. Please try again.");
+        });
+      }
+      function fillTaskListTable(result) {
+        var i = 1;
+        var ProjectList = $("#dtTableTaskList").dataTable({
+          scrollY: "170px",
+          scrollCollapse: true,
+          paging: false,
+          data: result,
+          bDestroy: true,
+          tableTools: {
+            fnRowSelected: function (nodes) {
+              alert("The row with ID " + nodes[0].id + " was selected");
+            },
+          },
+          aoColumns: [
+            {
+              mData: null,
+              sTitle: "SrNo",
+              mRender: function (data, type, full) {
+                return i++;
+              },
+            },
+            { mData: "TaskName", sTitle: "Task Name" },
+            { mData: "startDate", sTitle: "Satrt Date" },
+            { mData: "EndDate", sTitle: "End Date" },
+            { mData: "Description", sTitle: "Description" },
+            { mData: "Assignee", sTitle: "Assignee" },
+            {
+              mData: null,
+              sTitle: "Edit",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey TaskEdit"  value="Edit">Edit</button>';
+              },
+            },
+            {
+              mData: null,
+              sTitle: "Delete",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey Delete" value="Delete">Delete</button>';
+              },
+            },
+            {
+              mData: null,
+              sTitle: "View",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey TaskView" value="View">View</button>';
+              },
+            },
+          ],
+        });
+        var oTable = $("#dtTableTaskList").dataTable();
+        $("#dtTableTaskList tbody").on("click", "tr td", function () {
+          var table = oTable.fnGetData(this);
+          $this = $(this).closest("tr");
+          task_management.GenSettings.rowIndexSelectedDataTask = table;
+          if ($(this)[0].innerText == "Edit") {
+            EditTask(table);
+          }
+          if ($(this)[0].innerText == "Delete") {
+            DeleteTask(table);
+          }
+          if ($(this)[0].innerText == "View") {
+            ViewTask(table);
+          }
+        });
+      }
+
+      function DisableProjectDetailsForm() {
+        ProjectName = $("#ProjectName").val().trim();
+        Duration = $("#Duration").val().trim();
+        ProjectManager = $("#ProjectManager").val().trim();
+        Description = $("#Description").val();
+        $("#ProjectName").val(ProjectName).prop("disabled", true);
+        $("#Duration").val(Duration).prop("disabled", true);
+        $("#ProjectManager").val(ProjectManager).prop("disabled", true);
+        $("#Description").val(Description).prop("disabled", true);
+      }
+      function EditProject() {
+        $("#btnEditProject").click(function () {
+          enableProjectDetailsForm();
+        });
+      }
+      function enableProjectDetailsForm() {
+        $("#ProjectName").val(ProjectName).prop("disabled", false);
+        $("#Duration").val(Duration).prop("disabled", false);
+        $("#ProjectManager").val(ProjectManager).prop("disabled", false);
+        $("#Description").val(Description).prop("disabled", false);
+        $("#ProjectName").focus();
+      }
+      function EditProjects(tableData) {
+        enableProjectDetailsForm();
+        var ProjectID = tableData.id;
+        $("#ProjectName").val(tableData.ProjectName);
+        $("#Duration").val(tableData.Duration);
+        $("#ProjectManager").val(tableData.ProjectManager);
+        $("#Description").val(tableData.Description);
+      }
+      function DeleteTask(tableData) {
+        var TaskID = tableData.id;
+        var request = $.ajax({
+          url: "/task_management/TaskDelete/",
+          dataType: "json",
+          type: "POST",
+          data: {
+            TaskID: TaskID,
+            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+          },
+        });
+        request.done(function (result) {
+          var resultdata = JSON.parse(result);
+          if (resultdata["Status"] == "Success") {
+            alert("Task is Deleted Successfully");
+            getTaskList();
+          } else {
+            alert("Error: " + resultdata["message"]);
+          }
+        });
+        request.fail(function (jqXHR, textStatus) {
+          alert("Error in processing request. Please try again.");
+        });
+      }
+      function ViewTask(tableData) {
+        var TaskID = tableData.id;
+        url =
+          "/task_management/ProjectDetails/" +
+          ProjectID +
+          "/task/" +
+          TaskID +
+          "/";
+        window.location.replace(url);
+      }
+      function saveTask() {
+        $("#saveTask").click(function () {
+          var params = getTaskParams();
+          if (!validParamsTask(params)) return false;
+          var request = $.ajax({
+            url: "/task_management/TaskInsertUpdate/",
+            dataType: "json",
+            type: "POST",
+            data: {
+              TaskID: params.TaskID,
+              ProjectID: params.ProjectID,
+              TaskName: params.TaskName,
+              StartDate: params.StartDate,
+              EndDate: params.EndDate,
+              TaskDescription: params.TaskDescription,
+              Assignee: params.Assignee,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+          });
+          request.done(function (result) {
+            var resultdata = JSON.parse(result);
+            if (resultdata["Status"] == "Success") {
+              alert("Task Added Successfully");
+              getTaskList();
+              DisabletaskForm();
+            } else {
+              alert("Error: " + resultdata["message"]);
+            }
+          });
+          request.fail(function (jqXHR, textStatus) {
+            alert("Error in processing request. Please try again.");
+          });
+        });
+      }
+      function validParamsTask(params) {
+        var errorMsg = "";
+        if (params.TaskName == "") {
+          errorMsg += "Enter TaskName Name";
+        }
+        if (params.StartDate == "") {
+          errorMsg += "Enter Start Date";
+        }
+        if (params.EndDate == "") {
+          errorMsg += "Enter End Date Name";
+        }
+        if (params.TaskDescription == "") {
+          errorMsg += "Enter Description";
+        }
+        if (params.Assignee == "") {
+          errorMsg += "Enter Assignee Name";
+        }
+        if (errorMsg == "") {
+          return true;
+        } else {
+          alert("Errors: " + errorMsg);
+          return false;
+        }
+      }
+      function getTaskParams() {
+        var params = {};
+        if (task_management.GenSettings.rowIndexSelectedDataTask != null)
+          params.TaskID =
+            task_management.GenSettings.rowIndexSelectedDataTask.id;
+        else params.TaskID = 0;
+        params.ProjectID = ProjectID;
+        params.TaskName = $("#TaskName").val().trim();
+        params.StartDate = $("#StartDate").val().trim();
+        params.EndDate = $("#EndDate").val().trim();
+        params.TaskDescription = $("#TaskDescription").val();
+        params.Assignee = $("#Assignee option:selected").text().trim();
+        return params;
+      }
+      function getAssigneeName() {
+        var request = $.ajax({
+          url: "/task_management/getAssigneeName/",
+          dataType: "json",
+          type: "POST",
+          data: {
+            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+          },
+        });
+        request.done(function (result) {
+          if (result != null) {
+            var TempId = "";
+            var AssigneeName = '<option value="0"></option>';
+            for (var i = 0; i < result.length; i++) {
+              if (result[i].id != TempId) {
+                AssigneeName +=
+                  '<option value="' +
+                  result[i].id +
+                  '">' +
+                  result[i].Name +
+                  "</option>";
+                TempTrip = result[i].id;
+              }
+            }
+            $("#Assignee").html(AssigneeName);
+          }
+        });
+        request.fail(function (jqXHR, textStatus) {
+          alert("Error in processing request. Please try again.");
+        });
+      }
+      function AddTask() {
+        $("#btnAddTask").click(function () {
+          EnabletaskForm();
+          task_management.GenSettings.rowIndexSelectedDataTask = null;
+        });
+      }
+      function EnabletaskForm() {
+        $("#TaskName").val("").prop("disabled", false);
+        $("#StartDate").val("").prop("disabled", false);
+        $("#EndDate").val("").prop("disabled", false);
+        $("#TaskDescription").val("").prop("disabled", false);
+        $("#TaskName").focus();
+      }
+      function DisabletaskForm() {
+        $("#TaskName").val("").prop("disabled", true);
+        $("#StartDate").val("").prop("disabled", true);
+        $("#EndDate").val("").prop("disabled", true);
+        $("#TaskDescription").val("").prop("disabled", true);
+        // $("#Assignee").prop("disabled", true);
+      }
+      function EditTask(tableData) {
+        EnabletaskForm();
+        $("#TaskName").val(tableData.TaskName).prop("disabled", false);
+        $("#StartDate").val(tableData.startDate).prop("disabled", false);
+        $("#EndDate").val(tableData.EndDate).prop("disabled", false);
+        $("#TaskDescription")
+          .val(tableData.Description)
+          .prop("disabled", false);
+        $("#Assignee option").each(function () {
+          if ($(this).html() == tableData.Assignee) {
+            $(this).attr("selected", "selected");
+            return;
+          }
+        });
+        $("#TaskName").focus();
+      }
+    </script>
+  </body>
+</html>

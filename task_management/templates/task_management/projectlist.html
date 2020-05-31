@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      .page-header {
+        background-color: #009bdf;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 50px;
+      }
+      .sidebar {
+        background-color: #009bdf;
+        position: fixed;
+        height: 100%;
+        left: 0;
+        width: 50px;
+        top: 47px;
+      }
+      .mr-btn-grey {
+        padding: 4px 8px;
+        background: #c7e1e7;
+        border: 1px solid #9dc1cf;
+        border-radius: 4px;
+      }
+      .mr-btn-grey:hover {
+        background: #819ca1;
+        color: #fff;
+        border-color: #6b8a90;
+      }
+      .mr-header-margin {
+        margin-top: 15px !important;
+      }
+      .mr-panel {
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <h4 style="padding: 0px; margin-left: 100px; margin-top: 10px;">
+        Projects List
+      </h4>
+    </div>
+    <div class="sidebar"></div>
+    <div class="container">
+      <!-- <div class="row"> -->
+      <div class="panel panel-default mr-panel" style="margin-top: 50px;">
+        <div class="row mr-btn-wrap-top">
+          <div class="col-md-12">
+            <button
+              type="button"
+              style="
+                background-color: #009bdf;
+                margin-top: 20px;
+                text-align: right;
+              "
+              id="btnNewProject"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Create New Project
+            </button>
+          </div>
+        </div>
+        <div style="height: 270px;">
+          <table
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            class="table table-bordered table-hover"
+            id="dtTableProjectList"
+            width="100%"
+          ></table>
+        </div>
+      </div>
+      <!-- </div> -->
+
+      <!-- <div class="row"> -->
+      <!-- <div class="row">
+        <div class="col-sm-12"> -->
+      <h4
+        class="mr-header-margin"
+        style="padding: 0px; font-size: 20px; margin-top: 15px !important;"
+      >
+        Project Details(New/Edit)
+      </h4>
+      <!-- </div>
+      </div> -->
+
+      <!-- <div class="row"> -->
+      <div class="panel panel-default mr-panel" style="padding-bottom: 0cm;">
+        <div class="row mr-row">
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Project Name</span>
+              <input
+                id="ProjectName"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Duration(In Hours)</span>
+              <input
+                id="Duration"
+                type="text"
+                class="form-control"
+                style="width: 100px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm">Project Manager</span>
+              <input
+                id="ProjectManager"
+                type="text"
+                class="form-control"
+                style="width: 200px; margin-left: 10px;"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mr-row">
+          <div class="col-md-6">
+            <div class="form-group input-group">
+              <span class="input-group-addon input-sm" style="margin-top: 50px;"
+                >Description</span
+              >
+              <textarea
+                class="form-control"
+                rows="5"
+                id="Description"
+                style="margin-left: 10px;"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <button
+              style="background-color: #009bdf; margin-top: 50px;"
+              type="button"
+              id="saveProject"
+              class="btn btn-orange btn-sm right mr-btn-margin-5"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+    <!-- </div> -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"
+    />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      task_management = window.task_management || {};
+      task_management.GenSettings = task_management.GenSettings || {};
+      getProjectList();
+      SaveProjects();
+      clearProjectDetailsForm();
+      newProject();
+      function SaveProjects() {
+        $("#saveProject").click(function () {
+          var params = getProjectParams();
+          if (!validParamsProjects(params)) return false;
+          //   var ProjectID = 0;
+          //   var ProjectName = $("#ProjectName").val().trim();
+          //   var Duration = $("#Duration").val().trim();
+          //   var ProjectManager = $("#ProjectManager").val().trim();
+          //   var Description = $("#Description").val();
+          var request = $.ajax({
+            url: "/task_management/ProjectInsertUpdate/",
+            dataType: "json",
+            type: "POST",
+            data: {
+              ProjectID: params.ProjectID,
+              ProjectName: params.ProjectName,
+              Duration: params.Duration,
+              ProjectManager: params.ProjectManager,
+              Description: params.Description,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+          });
+          request.done(function (result) {
+            var resultdata = JSON.parse(result);
+            if (resultdata["Status"] == "Success") {
+              alert("Project Saved Successfully");
+              getProjectList();
+              clearProjectDetailsForm();
+            } else {
+              alert("Error: " + resultdata["message"]);
+            }
+          });
+          request.fail(function (jqXHR, textStatus) {
+            alert("Error in processing request. Please try again.");
+          });
+        });
+      }
+      function validParamsProjects(params) {
+        var errorMsg = "";
+        if (params.ProjectName == "") {
+          errorMsg += "Enter Project Name";
+        }
+        if (params.Duration <= 0) {
+          errorMsg += "Enter Duration";
+        }
+        if (params.ProjectManager == "") {
+          errorMsg += "Enter Project Manager Name";
+        }
+        if (params.Description == "") {
+          errorMsg += "Enter Description";
+        }
+
+        if (errorMsg == "") {
+          return true;
+        } else {
+          alert("Errors: " + errorMsg);
+          return false;
+        }
+      }
+      function getProjectParams() {
+        var params = {};
+        if (task_management.GenSettings.rowIndexSelectedDataProjects != null)
+          params.ProjectID =
+            task_management.GenSettings.rowIndexSelectedDataProjects.id;
+        else params.ProjectID = 0;
+        params.ProjectName = $("#ProjectName").val().trim();
+        params.Duration = $("#Duration").val().trim();
+        params.ProjectManager = $("#ProjectManager").val().trim();
+        params.Description = $("#Description").val();
+        return params;
+      }
+      function getProjectList() {
+        var projectlist = 1;
+        var request = $.ajax({
+          url: "/task_management/getProjectlist/",
+          dataType: "json",
+          type: "POST",
+          data: {
+            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+          },
+        });
+        request.done(function (result) {
+          if (result != null) {
+            fillProjectListTable(result);
+          } else {
+            alert("Error: " + resultdata["message"]);
+          }
+        });
+        request.fail(function (jqXHR, textStatus) {
+          alert("Error in processing request. Please try again.");
+        });
+      }
+      function fillProjectListTable(result) {
+        var i = 1;
+        var ProjectList = $("#dtTableProjectList").dataTable({
+          scrollY: "170px",
+          scrollCollapse: true,
+          paging: false,
+          data: result,
+          bDestroy: true,
+          tableTools: {
+            fnRowSelected: function (nodes) {
+              alert("The row with ID " + nodes[0].id + " was selected");
+            },
+          },
+          aoColumns: [
+            {
+              mData: null,
+              sTitle: "SrNo",
+              mRender: function (data, type, full) {
+                return i++;
+              },
+            },
+            { mData: "ProjectName", sTitle: "Project Name" },
+            { mData: "Duration", sTitle: "Duration(In Hours) " },
+            { mData: "ProjectManager", sTitle: "Project Manager" },
+            { mData: "Description", sTitle: "Description" },
+            {
+              mData: null,
+              sTitle: "Edit",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey Edit"  value="Edit">Edit</button>';
+              },
+            },
+            {
+              mData: null,
+              sTitle: "Delete",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey Delete" value="Delete">Delete</button>';
+              },
+            },
+            {
+              mData: null,
+              sTitle: "View",
+              mRender: function (data, type, full) {
+                return '<button class="mr-btn-grey View" value="View">View</button>';
+              },
+            },
+          ],
+        });
+        var oTable = $("#dtTableProjectList").dataTable();
+        $("#dtTableProjectList tbody").on("click", "tr td", function () {
+          var table = oTable.fnGetData(this);
+          $this = $(this).closest("tr");
+          task_management.GenSettings.rowIndexSelectedDataProjects = table;
+          if ($(this)[0].innerText == "Edit") {
+            EditProjects(table);
+          }
+          if ($(this)[0].innerText == "Delete") {
+            DeleteProjects(table);
+          }
+          if ($(this)[0].innerText == "View") {
+            ViewProjects(table);
+          }
+        });
+      }
+
+      function clearProjectDetailsForm() {
+        $("#ProjectName").val("").prop("disabled", true);
+        $("#Duration").val("").prop("disabled", true);
+        $("#ProjectManager").val("").prop("disabled", true);
+        $("#Description").val("").prop("disabled", true);
+      }
+      function newProject() {
+        $("#btnNewProject").click(function () {
+          enableProjectDetailsForm();
+          task_management.GenSettings.rowIndexSelectedDataProjects = null;
+        });
+      }
+      function enableProjectDetailsForm() {
+        $("#ProjectName").val("").prop("disabled", false);
+        $("#Duration").val("").prop("disabled", false);
+        $("#ProjectManager").val("").prop("disabled", false);
+        $("#Description").val("").prop("disabled", false);
+        $("#ProjectName").focus();
+      }
+      function EditProjects(tableData) {
+        enableProjectDetailsForm();
+        var ProjectID = tableData.id;
+        $("#ProjectName").val(tableData.ProjectName);
+        $("#Duration").val(tableData.Duration);
+        $("#ProjectManager").val(tableData.ProjectManager);
+        $("#Description").val(tableData.Description);
+      }
+      function DeleteProjects(tableData) {
+        var ProjectID = tableData.id;
+        var request = $.ajax({
+          url: "/task_management/ProjectDelete/",
+          dataType: "json",
+          type: "POST",
+          data: {
+            ProjectID: ProjectID,
+            csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+          },
+        });
+        request.done(function (result) {
+          var resultdata = JSON.parse(result);
+          if (resultdata["Status"] == "Success") {
+            alert("Project is Deleted Successfully");
+            getProjectList();
+          } else {
+            alert("Error: " + resultdata["message"]);
+          }
+        });
+        request.fail(function (jqXHR, textStatus) {
+          alert("Error in processing request. Please try again.");
+        });
+      }
+      function ViewProjects(tableData) {
+        var ProjectID = tableData.id;
+        url = "/task_management/ProjectDetails/" + ProjectID + "/";
+        window.location.replace(url);
+        // var request = $.ajax({
+        //   url: "/task_management/ProjectDetails/",
+        //   dataType: "json",
+        //   type: "POST",
+        //   data: {
+        //     ProjectID: ProjectID,
+        //     csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+        //   },
+        // });
+        // request.done(function (result) {
+        //   var resultdata = JSON.parse(result);
+        //   if (resultdata["Status"] == "Success") {
+        //     url = "/task_management/ProjectDetails/";
+        //     // window.location.replace(url);
+        //   } else {
+        //     alert("Error: " + resultdata["message"]);
+        //   }
+        // });
+        // request.fail(function (jqXHR, textStatus) {
+        //   alert("Error in processing request. Please try again.");
+        // });
+      }
+    </script>
+  </body>
+</html>
