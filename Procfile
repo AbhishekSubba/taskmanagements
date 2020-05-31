@@ -1,1 +1,1 @@
-web: gunicorn TaskManagement.wsgi
+web: gunicorn django_project.wsgi
